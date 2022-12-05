@@ -36,4 +36,4 @@ strat_chars = map(x -> [only(x[1]), only(x[2])], strat_raw)
 sum(map(rpschecker, strat_chars))
 
 # Solution for Task 02.2
-sum(map(rpschecker, map(x -> [x[1], x[3]], map(rpssolver, strat_chars))))
+sum(map(rpschecker ∘ (x -> [x[1], x[3]]) ∘ rpssolver, strat_chars))
