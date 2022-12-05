@@ -22,7 +22,7 @@ cratestacks_snapshot = deepcopy(cratestacks)
 mover!.(moves);
 string(first.(cratestacks)...)
 
-# Solution for Task 05.2 -- modify mover! ... simply remove the reverse to implement the CraveMover9001
+# Solution for Task 05.2 -- modify mover! ... simply remove the reverse to implement the CrateMover9001
 # restore original cratestacks, then apply moves again
 cratestacks = cratestacks_snapshot
 mover9001!(movevec) = (splice!(cratestacks[movevec[2]], 1:movevec[1]) |> (x -> pushfirst!(cratestacks[movevec[3]], x...)))
