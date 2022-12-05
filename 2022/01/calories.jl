@@ -7,9 +7,8 @@ lines = readlines(f)
 emptylines = findall(isempty, lines)
 elves = getindex.(Ref(lines), UnitRange.([1; emptylines .+ 1], [emptylines .- 1; length(lines)]))
 
-# small helper function to convert all String to Int within an Iterable 
-char_to_int_parser(arr) = map(x -> parse(Int, x), arr)
-sum_calories = map(sum ∘ char_to_int_parser, elves)
+# sum up all calories per elf
+sum_calories = elves .|> (x -> parse.(Int, x)) .|> sum
 
 # Lösung für AoC Task 01.1
 maximum(sum_calories)
