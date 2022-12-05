@@ -29,8 +29,7 @@ f = open("02\\input.txt")
 lines = readlines(f)
 
 # convert to array of Char-arrays
-strat_raw = map(x -> split(x, " "), lines)
-strat_chars = map(x -> [only(x[1]), only(x[2])], strat_raw)
+strat_chars = lines .|> (x -> split(x, " ")) .|> (x -> only.(x))
 
 # Solution for Task 02.1
 sum(map(rpschecker, strat_chars))
